@@ -1,0 +1,1 @@
+CREATE TABLE `phpproject`.`student` (`stuid` VARCHAR(20) NOT NULL , `firstname` VARCHAR(100) NOT NULL , `lastname` VARCHAR(100) NOT NULL , `mobile` VARCHAR(20) NOT NULL ) ENGINE = InnoDB CHARSET=utf8mb4 COLLATE utf8mb4_general_ci;
