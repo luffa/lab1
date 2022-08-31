@@ -21,6 +21,7 @@ if($mysqli->connect_errno){
   exit();
 }
 $studId ='0';
+$firstname = $lastname = $mobile = "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
      $stuid =  $_POST["stuid"];
@@ -28,7 +29,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
      $lastname =  $_POST["lastname"];
      $mobile =  $_POST["mobile"];
 
-     $sql = "INSERT INTO `student`(`stuid`, `firstname`, `lastname`, `mobile`) VALUES ('".$stuid."','".$firstname."','".$lastname."','".$mobile."')";
+     $sql = "UPDATE `student` SET `stuid`='" . $stuid. "',
+     `firstname`='". $firstname ."',
+     `lastname`='". $lastname ."',
+     `mobile`='". $mobile ."'
+      WHERE stuid=" . $stuid;;
 
      $insert = $mysqli->query($sql);
      if($insert){
@@ -41,7 +46,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 if(isset($_GET["stuid"])){
     $studId = $_GET["stuid"];
 }
+$sql = "select * from student where stuid=" . $studId;
 
+$result = $mysqli->query($sql);
+$resultArray = $result->fetch_array();
+
+$firstname = $resultArray["firstname"];
+$lastname = $resultArray["lastname"];
+$mobile = $resultArray["mobile"];
 
 ?> 
 <form name="frmAdd" method="post" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>>   
@@ -54,15 +66,15 @@ if(isset($_GET["stuid"])){
         </tr>
         <tr>
             <td>ชื่อ</td>
-            <td><input type="text" name="firstname"></td>
+            <td><input type="text" name="firstname" value="<?php echo $firstname; ?>"></td>
         </tr>
         <tr>
             <td>นามสกุล</td>
-            <td><input type="text" name="lastname"></td>
+            <td><input type="text" name="lastname" value="<?php echo $lastname; ?>"></td>
         </tr>
         <tr>
             <td>เบร์โทร</td>
-            <td><input type="text" name="mobile"></td>
+            <td><input type="text" name="mobile" value="<?php echo $mobile; ?>"></td>
         </tr>
     </table>
     <input type="submit" name="submit" value="บันทึก"> 
