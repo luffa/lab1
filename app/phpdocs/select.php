@@ -42,7 +42,7 @@ $mysql_statement = $mysqli->query($sql);
     <td><?php echo $result["firstname"].' '.$result["lastname"];?></td>
     <td><?php echo $result["mobile"];?></td>
     <th><a href="update.php?stuid=<?php echo $result["stuid"];?>">Edit</a> </th>
-    <th>Delete</th>
+    <th><a href="delete.php?stuid=<?php echo $result["stuid"];?>">Delete</a></th>
   </tr>
   <?php
   }
