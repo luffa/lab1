@@ -35,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
      `mobile`='". $mobile ."'
       WHERE stuid='" . $stuid ."'";
 
-    //   echo $sql;
+    echo $sql;
      $insert = $mysqli->query($sql);
     //  echo $insert;
      if($insert){
