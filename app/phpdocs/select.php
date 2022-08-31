@@ -41,7 +41,7 @@ $mysql_statement = $mysqli->query($sql);
     <td><?php echo $result["stuid"];?></td>
     <td><?php echo $result["firstname"].' '.$result["lastname"];?></td>
     <td><?php echo $result["mobile"];?></td>
-    <th>Edit</th>
+    <th><a href="update.php">Edit</a> </th>
     <th>Delete</th>
   </tr>
   <?php
