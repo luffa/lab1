@@ -20,6 +20,7 @@ if($mysqli->connect_errno){
   printf("Connection failed: %s\n",$mysqli->connect_error);
   exit();
 }
+$studId ='0';
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
      $stuid =  $_POST["stuid"];
@@ -37,13 +38,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
      }
 }
 
+if(isset($_GET["stuid"])){
+    $studId = $_GET["stuid"];
+}
+
+
 ?> 
 <form name="frmAdd" method="post" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>>   
 <table border="1">
         <tr>
             <td>รหัส</td>
            <td>
-                <input type="text" name="stuid">
+                <input type="text" name="stuid" value="<?php echo $studId; ?>">
         </td>
         </tr>
         <tr>
