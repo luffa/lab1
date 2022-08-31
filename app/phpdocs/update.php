@@ -33,9 +33,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
      `firstname`='". $firstname ."',
      `lastname`='". $lastname ."',
      `mobile`='". $mobile ."'
-      WHERE stuid=" . $stuid;;
+      WHERE stuid='" . $stuid ."'";
 
+    //   echo $sql;
      $insert = $mysqli->query($sql);
+    //  echo $insert;
      if($insert){
         echo "สำเร็จ";
      }else{
