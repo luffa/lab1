@@ -23,8 +23,8 @@ if($mysqli->connect_errno){
 $studId='0';
 if(isset($_GET["stuid"])){
     $studId = $_GET["stuid"];
+    $sql = "select * from student where stuid=" . $studId;
 
-    
 }
 
 ?>  
